@@ -1,0 +1,14 @@
+{
+    "json_class": "Chef::Role",
+    "name": "common",
+    "description": "",
+    "default_attributes": {
+    },
+    "run_list": [
+        "recipe[selinux::disabled]",
+        "recipe[vim]",
+        "recipe[git]",
+        "recipe[yum-remi]",
+        "recipe[yum-epel]"
+    ]
+}

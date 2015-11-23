@@ -1,0 +1,12 @@
+{
+    "json_class": "Chef::Role",
+    "name": "webdb",
+    "description": "web and db",
+    "default_attributes": {
+    },
+    "run_list": [
+        "recipe[mysql]",
+        "recipe[apache]",
+        "recipe[php]"
+    ]
+}

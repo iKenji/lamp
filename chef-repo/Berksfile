@@ -1,0 +1,10 @@
+source "https://supermarket.chef.io"
+
+cookbook 'apache', path: './site-cookbooks/apache'
+cookbook 'mysql', path: './site-cookbooks/mysql'
+cookbook 'php', path: './site-cookbooks/php'
+cookbook 'selinux'
+cookbook 'vim'
+cookbook 'git'
+cookbook 'yum-remi'
+cookbook 'yum-epel'
