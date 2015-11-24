@@ -1,0 +1,5 @@
+default['mysql']['db']['user'] = 'vagrant'
+default['mysql']['db']['pass'] = 'vagrant'
+default['mysql']['db']['database'] = 'mydatabase'
+default['mysql']['db']['host'] = 'localhost'
+default['mysql']['db']['rootpass'] = ''

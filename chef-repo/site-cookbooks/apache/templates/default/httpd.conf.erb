@@ -117,12 +117,12 @@ ServerName centos-webdb:80
 # symbolic links and aliases may be used to point to other locations.
 #
 #DocumentRoot "/var/www/html"
-DocumentRoot "/vagrant/app/"
+DocumentRoot "/vagrant/app/wordpress"
 
 #
 # Relax access to content within /var/www.
 #
-<Directory "/var/www">
+<Directory "/vagrant/app/wordpress">
     AllowOverride None
     # Allow open access:
     Require all granted

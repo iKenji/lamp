@@ -19,5 +19,11 @@ Vagrant.configure(2) do |config|
         chef.roles_path = "./chef-repo/roles"
         chef.add_role("common")
         chef.add_role("webdb")
+        
+        chef.json = {
+          mysql: {
+            server_root_password: 'rootpass'
+          }
+        }
     end
 end

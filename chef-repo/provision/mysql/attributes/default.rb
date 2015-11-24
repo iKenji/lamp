@@ -1,0 +1,5 @@
+default['mysql']['db']['user'] = 'dbuser'
+default['mysql']['db']['pass'] = 'kenji1843'
+default['mysql']['db']['database'] = 'mydatabase'
+default['mysql']['db']['host'] = 'localhost'
+default['mysql']['db']['rootpass'] = ''
