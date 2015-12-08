@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 
-%w[ php php-pdo php-mbstring php-mysqlnd].each do |pkg|
+%w[ php php-gd php-pdo php-mbstring php-mysqlnd].each do |pkg|
   package "#{pkg}" do
     action :install
     options "--enablerepo=remi,epel,remi-php55"

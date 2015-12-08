@@ -12,7 +12,6 @@ Vagrant.configure(2) do |config|
         vm.customize ["modifyvm", :id, "--ostype", "RedHat_64" ]
         vm.customize ["modifyvm", :id, "--memory", "1024"]
     end
-
     config.omnibus.chef_version = :latest
     config.vm.provision "chef_zero" do |chef|
         chef.cookbooks_path = "./chef-repo/cookbooks"

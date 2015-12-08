@@ -19,110 +19,109 @@
 # interpreted as '/log/access_log'.
 
 #
-# ServerRoot: The top of the directory tree under which the server's
+# serverroot: the top of the directory tree under which the server's
 # configuration, error, and log files are kept.
 #
-# Do not add a slash at the end of the directory path.  If you point
-# ServerRoot at a non-local disk, be sure to specify a local disk on the
-# Mutex directive, if file-based mutexes are used.  If you wish to share the
-# same ServerRoot for multiple httpd daemons, you will need to change at
-# least PidFile.
+# do not add a slash at the end of the directory path.  if you point
+# serverroot at a non-local disk, be sure to specify a local disk on the
+# mutex directive, if file-based mutexes are used.  if you wish to share the
+# same serverroot for multiple httpd daemons, you will need to change at
+# least pidfile.
 #
-ServerRoot "/etc/httpd"
+serverroot "/etc/httpd"
 
 #
-# Listen: Allows you to bind Apache to specific IP addresses and/or
-# ports, instead of the default. See also the <VirtualHost>
+# listen: allows you to bind apache to specific ip addresses and/or
+# ports, instead of the default. see also the <virtualhost>
 # directive.
 #
-# Change this to Listen on specific IP addresses as shown below to 
-# prevent Apache from glomming onto all bound IP addresses.
+# change this to listen on specific ip addresses as shown below to 
+# prevent apache from glomming onto all bound ip addresses.
 #
-#Listen 12.34.56.78:80
-Listen 80
+#listen 12.34.56.78:80
+listen 80
 
 #
-# Dynamic Shared Object (DSO) Support
+# dynamic shared object (dso) support
 #
-# To be able to use the functionality of a module which was built as a DSO you
-# have to place corresponding `LoadModule' lines at this location so the
+# to be able to use the functionality of a module which was built as a dso you
+# have to place corresponding `loadmodule' lines at this location so the
 # directives contained in it are actually available _before_ they are used.
-# Statically compiled modules (those listed by `httpd -l') do not need
+# statically compiled modules (those listed by `httpd -l') do not need
 # to be loaded here.
 #
-# Example:
-# LoadModule foo_module modules/mod_foo.so
+# example:
+# loadmodule foo_module modules/mod_foo.so
 #
-Include conf.modules.d/*.conf
+include conf.modules.d/*.conf
 
 #
-# If you wish httpd to run as a different user or group, you must run
+# if you wish httpd to run as a different user or group, you must run
 # httpd as root initially and it will switch.  
 #
-# User/Group: The name (or #number) of the user/group to run httpd as.
-# It is usually good practice to create a dedicated user and group for
+# user/group: the name (or #number) of the user/group to run httpd as.
+# it is usually good practice to create a dedicated user and group for
 # running httpd, as with most system services.
 #
-User apache
-Group apache
+user apache
+group apache
 
-# 'Main' server configuration
+# 'main' server configuration
 #
-# The directives in this section set up the values used by the 'main'
+# the directives in this section set up the values used by the 'main'
 # server, which responds to any requests that aren't handled by a
-# <VirtualHost> definition.  These values also provide defaults for
-# any <VirtualHost> containers you may define later in the file.
+# <virtualhost> definition.  these values also provide defaults for
+# any <virtualhost> containers you may define later in the file.
 #
-# All of these directives may appear inside <VirtualHost> containers,
+# all of these directives may appear inside <virtualhost> containers,
 # in which case these default settings will be overridden for the
 # virtual host being defined.
 #
 
 #
-# ServerAdmin: Your address, where problems with the server should be
-# e-mailed.  This address appears on some server-generated pages, such
+# serveradmin: your address, where problems with the server should be
+# e-mailed.  this address appears on some server-generated pages, such
 # as error documents.  e.g. admin@your-domain.com
 #
-ServerAdmin root@localhost
+serveradmin root@localhost
 
 #
-# ServerName gives the name and port that the server uses to identify itself.
-# This can often be determined automatically, but we recommend you specify
+# servername gives the name and port that the server uses to identify itself.
+# this can often be determined automatically, but we recommend you specify
 # it explicitly to prevent problems during startup.
 #
-# If your host doesn't have a registered DNS name, enter its IP address here.
+# if your host doesn't have a registered dns name, enter its ip address here.
 #
-ServerName centos-webdb:80
+servername centos-webdb:80
 
 #
-# Deny access to the entirety of your server's filesystem. You must
+# deny access to the entirety of your server's filesystem. you must
 # explicitly permit access to web content directories in other 
-# <Directory> blocks below.
+# <directory> blocks below.
 #
-<Directory />
-    AllowOverride none
-    Require all denied
-</Directory>
+<directory />
+    allowoverride none
+    require all denied
+</directory>
 
 #
-# Note that from this point forward you must specifically allow
+# note that from this point forward you must specifically allow
 # particular features to be enabled - so if something's not working as
 # you might expect, make sure that you have specifically enabled it
 # below.
 #
 
 #
-# DocumentRoot: The directory out of which you will serve your
-# documents. By default, all requests are taken from this directory, but
+# documentroot: the directory out of which you will serve your
+# documents. by default, all requests are taken from this directory, but
 # symbolic links and aliases may be used to point to other locations.
 #
-#DocumentRoot "/var/www/html"
-DocumentRoot "/vagrant/app/wordpress"
+documentroot "/var/www/html"
 
 #
 # Relax access to content within /var/www.
 #
-<Directory "/vagrant/app/wordpress">
+<Directory "/var/www/html">
     AllowOverride None
     # Allow open access:
     Require all granted

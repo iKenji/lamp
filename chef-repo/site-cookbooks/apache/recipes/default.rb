@@ -8,6 +8,8 @@
 #
 #
 #
+
+# Apache
 package "httpd" do
     action :install
 end
@@ -16,11 +18,15 @@ service "httpd" do
     action [:enable, :start]
 end
 
-
-template "httpd.conf" do
-    path "/etc/httpd/conf/httpd.conf"
-    owner "root"
-    group "root"
-    mode 0644
-    notifies :reload, 'service[httpd]'
+# conf.d
+conf='wp'
+template "/etc/httpd/conf.d/#{conf}.conf" do
+    source "#{conf}.conf.erb"
+    mode '0644'
+    owner 'root'
+    group 'root'
+    notifies :restart, 'service[httpd]'
+    variables({
+        webroot: "#{node['apache']['home']}/app/wordpress"
+    })
 end
