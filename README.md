@@ -1,1 +1,3 @@
-### chefの練習でlamp環境を作ってみる
+# lamp
+
+chefの練習でlamp環境を作ってみる
