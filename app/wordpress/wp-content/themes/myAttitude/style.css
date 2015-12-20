@@ -10,3 +10,20 @@
  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  Text Domain:  attitude-child
 */
+
+/* TOP
+-------------------------------*/
+/* フッターのデフォルトコピーライトを非表示 */
+div#site-generator.clearfix{
+    display:none;
+}
+/* トップメニューの大文字規制を解除 */
+#access a {
+	color: #777;
+	display: block;
+	float: left;
+	font-size: 14px;
+	text-transform: none;
+	padding: 16px 0 0;
+	height: 39px;
+}
