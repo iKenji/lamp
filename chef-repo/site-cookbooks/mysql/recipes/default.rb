@@ -53,30 +53,11 @@ end
  
 execute "mysql-create-database" do
     command "/usr/bin/mysqladmin -u root create #{node['mysql']['db']['database']}"
-    not_if do
-        require 'rubygems'
-        Gem.clear_paths
-        require 'mysql'
-        m = Mysql.new(node['mysql']['db']['host'], "root", node['mysql']['db']['rootpass'])
-        m.list_dbs.include?(node['mysql']['db']['database'])
-    end
 end
 
 execute "mysql-create-tables" do
     command "/usr/bin/mysql -u root #{node['mysql']['db']['database']} < /tmp/tables.sql"
     action :nothing
-    only_if do
-        require 'rubygems'
-        Gem.clear_paths
-        require 'mysql'
-        m = Mysql.new(node['mysql']['db']['host'], "root", node['mysql']['db']['rootpass'])
-        begin
-            m.select_db(node['mysql']['db']['database'])
-            m.list_tables.empty?
-        rescue Mysql::Error
-            return false
-        end
-    end
 end
  
 template "/tmp/tables.sql" do
